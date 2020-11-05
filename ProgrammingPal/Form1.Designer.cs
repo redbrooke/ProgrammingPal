@@ -28,59 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.display = new System.Windows.Forms.PictureBox();
+            this.Codebox = new System.Windows.Forms.RichTextBox();
+            this.commandLine = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.display)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // display
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(546, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(532, 496);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.display.Location = new System.Drawing.Point(546, 23);
+            this.display.Name = "display";
+            this.display.Size = new System.Drawing.Size(532, 496);
+            this.display.TabIndex = 0;
+            this.display.TabStop = false;
+            this.display.Paint += new System.Windows.Forms.PaintEventHandler(this.paint);
             // 
-            // richTextBox1
+            // Codebox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(9, 23);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(500, 380);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.Codebox.Location = new System.Drawing.Point(9, 23);
+            this.Codebox.Name = "Codebox";
+            this.Codebox.Size = new System.Drawing.Size(500, 380);
+            this.Codebox.TabIndex = 1;
+            this.Codebox.Text = "";
             // 
-            // textBox1
+            // commandLine
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 453);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(444, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(462, 453);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 20);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "run";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.commandLine.Location = new System.Drawing.Point(12, 453);
+            this.commandLine.Name = "commandLine";
+            this.commandLine.Size = new System.Drawing.Size(497, 20);
+            this.commandLine.TabIndex = 2;
+            this.commandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.commandLine_KeyDown);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 551);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.commandLine);
+            this.Controls.Add(this.Codebox);
+            this.Controls.Add(this.display);
             this.Name = "Form1";
             this.Text = "Programming Pal";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.display)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,10 +77,9 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox display;
+        private System.Windows.Forms.RichTextBox Codebox;
+        private System.Windows.Forms.TextBox commandLine;
     }
 }
 
