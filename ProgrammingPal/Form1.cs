@@ -14,6 +14,7 @@ namespace ProgrammingPal
     {
         Bitmap OutputBitmap = new Bitmap(532,496);
         DrawHandler theCanvass;
+        commandRun commandShell = new commandRun();
         public Form1()
         {
             InitializeComponent();
@@ -31,17 +32,22 @@ namespace ProgrammingPal
         {
             if (e.KeyCode == Keys.Enter){
                 string input = commandLine.Text.Trim().ToLower();
-                if (input.Equals("line") == true)
-                {
-                    theCanvass.DrawLine(50, 50);
+                var toDraw = commandShell.returnInstruction(input);
+
+                switch (toDraw.Item1) {
+                    case "line":
+                        theCanvass.DrawLine(50, 50);
+                        break;
+                    case "square":
+                        theCanvass.DrawSquare(50);
+                        break;
                 }
-                else if (input.Equals("square") == true) 
-                {
-                    theCanvass.DrawSquare(50);
-                }
+
+
                 commandLine.Text = "";
                 Refresh();
             }
         }
+
     }
 }
