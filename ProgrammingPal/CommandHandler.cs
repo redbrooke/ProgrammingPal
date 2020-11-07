@@ -10,11 +10,12 @@ namespace ProgrammingPal
     class CommandHandler
     {
 
-        public String parse(String line) {
+        public Tuple<string, int, int> parse(String line) 
+        {
             string[] split;
             string command;
             string[] parameters;
-            int[] paramsAsInt = null; // needs to be assigned in scole, hence null. 
+            int[] paramsAsInt = { 0, 0 }; // needs to be assigned in scole, hence null. 
 
             line = line.ToLower();
             split = line.Split(' ');
@@ -26,10 +27,11 @@ namespace ProgrammingPal
             {
                 paramsAsInt[i] = int.Parse(parameters[i]);
             }
-            
 
+            // error check
 
-            return "";
+            var parsed = new Tuple<string, int, int>(command, paramsAsInt[0], paramsAsInt[1]);
+            return parsed;
         }
 
     }

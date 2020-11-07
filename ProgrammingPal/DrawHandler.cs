@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,15 +27,21 @@ namespace ProgrammingPal
         public void DrawLine(int Xdest, int Ydest) 
         {
             graphics.DrawLine(pen, Xpos, Ypos, Xdest, Ydest);
-            Xpos += Xdest;
-            Ypos += Ydest;
+            Xpos = Xdest;
+            Ypos = Ydest;
         }
 
         public void DrawSquare(int width)
         {
-            graphics.DrawRectangle(pen, Xpos, Ypos, Xpos + width, Ypos + width);
+            graphics.DrawRectangle(pen, Xpos, Ypos, width, width);
             Xpos += width;
             Ypos += width;
+        }
+
+        public void MoveTo(int Xdest, int Ydest)
+        {
+            Xpos = Xdest;
+            Ypos = Ydest;
         }
     }
 }

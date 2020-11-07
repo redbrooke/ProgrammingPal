@@ -35,14 +35,19 @@ namespace ProgrammingPal
                 var toDraw = commandShell.returnInstruction(input);
 
                 switch (toDraw.Item1) {
-                    case "line":
-                        theCanvass.DrawLine(50, 50);
+                    case "drawto":
+                        theCanvass.DrawLine(toDraw.Item2, toDraw.Item3);
                         break;
                     case "square":
-                        theCanvass.DrawSquare(50);
+                        theCanvass.DrawSquare(toDraw.Item2);
+                        break;
+                    case "moveto":
+                        theCanvass.MoveTo(toDraw.Item2, toDraw.Item3);
+                        break;
+                    case "reset":
+                        theCanvass.MoveTo(0, 0);
                         break;
                 }
-
 
                 commandLine.Text = "";
                 Refresh();
