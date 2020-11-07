@@ -38,10 +38,20 @@ namespace ProgrammingPal
             Ypos += width;
         }
 
+        public void DrawCircle(int circum)
+        {
+            graphics.DrawEllipse(pen, Xpos, Ypos, circum, circum);
+        }
+
         public void MoveTo(int Xdest, int Ydest)
         {
             Xpos = Xdest;
             Ypos = Ydest;
+        }
+
+        public void Clear()
+        {
+            graphics.Clear(Color.Transparent);
         }
     }
 }
