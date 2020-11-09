@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace ProgrammingPal
 {
-    class DrawHandler : errorString
+    /// <summary>This class handles adding things to the canvass. </summary>
+    class DrawHandler : ErrorString
     {
         Graphics graphics;
         Pen pen;
@@ -20,6 +21,7 @@ namespace ProgrammingPal
         Font drawFont = new Font("Arial", 16);
 
         StringFormat drawFormat = new StringFormat();
+        /// <summary>This method sets some basics, particulary about the graphics pannel.</summary>
         public DrawHandler(Graphics graphics)
         {
             this.graphics = graphics;
@@ -29,6 +31,7 @@ namespace ProgrammingPal
             graphics.Clear(Color.White);
         }
 
+        /// <summary>This method draws a line</summary>
         public void DrawLine(int Xdest, int Ydest) 
         {
             graphics.DrawLine(pen, Xpos, Ypos, Xdest, Ydest);
@@ -36,6 +39,7 @@ namespace ProgrammingPal
             Ypos = Ydest;
         }
 
+        /// <summary>This method draws a square</summary>
         public void DrawSquare(int width)
         {
             if (fillShape)
@@ -49,7 +53,7 @@ namespace ProgrammingPal
             Xpos += width;
             Ypos += width;
         }
-
+        /// <summary>This method draws a rectangle</summary>
         public void DrawRectangle(int height, int width)
         {
             if (fillShape)
@@ -64,12 +68,14 @@ namespace ProgrammingPal
             Ypos += height;
         }
 
+        /// <summary>This method is called when an error is generated. It needs to parse the error by calling the getError function, then prints it</summary>
         public void error(Tuple<string, int, int> toDraw) 
         {
             string printMe = getError(toDraw);
             graphics.DrawString(printMe, drawFont, Brush, 30, 30, drawFormat);
         }
 
+        /// <summary>This method draws a triangle</summary>
         public void DrawTriangle(int size)
         {
             int returnPosX = Xpos;
@@ -78,6 +84,8 @@ namespace ProgrammingPal
             DrawLine(Xpos + size, Ypos);
             DrawLine(returnPosX, returnPosY);
         }
+
+        /// <summary>This method draws a circle</summary>
         public void DrawCircle(int circum)
         {
             if (fillShape)
@@ -90,17 +98,20 @@ namespace ProgrammingPal
             }
         }
 
+        /// <summary>This method moves the pens position</summary>
         public void MoveTo(int Xdest, int Ydest)
         {
             Xpos = Xdest;
             Ypos = Ydest;
         }
 
+        /// <summary>This method clears the background</summary>
         public void bgClear()
         {
             graphics.Clear(Color.White);
         }
 
+        /// <summary>This method changes the pen color</summary>
         public void ColorSet(int newColor)
         {
             switch (newColor) 
@@ -120,6 +131,7 @@ namespace ProgrammingPal
             }
         }
 
+        /// <summary>This method fills the shape</summary>
         public void Fill(int fill)
         {
             switch (fill) 

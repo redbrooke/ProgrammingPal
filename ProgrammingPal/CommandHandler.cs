@@ -9,7 +9,8 @@ using System.Windows.Forms;
 
 namespace ProgrammingPal
 {
-    class CommandHandler
+    /// <summary>This class is abstract and only used to parse commands and encode the data. If there are errors these are encoded and sent to its children too,</summary>
+    abstract class CommandHandler
     {
         string command;
         string[] split;
@@ -19,9 +20,11 @@ namespace ProgrammingPal
         public static string[] CommandsOneParams = { "square", "circle", "triangle" };
         public static string[] CommandsNoParams = { "clear", "reset", "run" };
         public static string[] CommandsString = { "color", "fill" };
+
+        /// <summary>This method takes a line of code and splits it into a special data-type. These dataypes use Tuples and are layed out as (string, int, int) </summary>
         public Tuple<string, int, int> parse(String line) 
         {
-            command = "error";
+            command = "";
 
             line = line.ToLower();
             split = line.Split(' ');
@@ -33,13 +36,20 @@ namespace ProgrammingPal
             {
                 parameters = split[1].Split(',');
             }
+            else if (!CommandsNoParams.Contains(command) && split.Length == 1)
+            {
+                return new Tuple<string, int, int>("error", 2, 1);
+            }
             else if (!CommandsNoParams.Contains(command) && split.Length <= 1) 
             { 
                 return new Tuple<string, int, int>("error", 1, 3);
             }
 
             command = checkCommand(command);
-
+            if (command == "error") 
+            {
+                return new Tuple<string, int, int>(command, 2, 1);
+            }
             // Checks to see if the parameters are supposed to be strings
             if (CommandsString.Contains(command))
             {
@@ -49,12 +59,12 @@ namespace ProgrammingPal
             {
                 paramsAsInt = checkParams(parameters);
             }
-            // error check
 
             var parsed = new Tuple<string, int, int>(command, paramsAsInt[0], paramsAsInt[1]);
             return parsed;
         }
 
+        /// <summary>This method checks that the command is valid.</summary>
         private string checkCommand(String command)
         {
             if (CommandsTwoParams.Contains(command) | CommandsOneParams.Contains(command) | CommandsNoParams.Contains(command) | CommandsNoParams.Contains(command))
@@ -68,6 +78,7 @@ namespace ProgrammingPal
             }
         }
 
+        /// <summary>This class checks if the paramters are valid and encodes them.</summary>
         private int[] checkParams(string[] parameters) 
         {
             // Error checking for if its a command needing two parameters
@@ -114,6 +125,7 @@ namespace ProgrammingPal
             }
         }
 
+        /// <summary>This class is for when the command uses a string</summary>
         private int[] parseString(string cutMe)
         {
             // Parses/encodes the color command

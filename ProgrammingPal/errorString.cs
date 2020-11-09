@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProgrammingPal
 {
-    class errorString
+    /// <summary>This class uses the error testing. It essentially takes an error code and parses it into a displayable string </summary>
+    abstract class ErrorString
     {
+        /// <summary>Method to generate the error string.</summary>
         public string getError(Tuple<string, int, int> error)
             {
             string returnMe = "ERROR: ";

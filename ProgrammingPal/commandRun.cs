@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProgrammingPal
 {
+    /// <summary>This class takes in the users command text box input and feeds it to the parser, then returns a formatted version.</summary>
     class commandRun : CommandHandler
     {
-        //CommandHandler handle = new CommandHandler();
         public Tuple<string,int, int> returnInstruction(string input)
         { //Tuple is like an array but immutable and more memory efficient. https://developerpublish.com/3-options-to-return-multiple-values-from-a-method-in-c/
 
