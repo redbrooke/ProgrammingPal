@@ -49,6 +49,7 @@
     <Compile Include="CommandHandler.cs" />
     <Compile Include="commandRun.cs" />
     <Compile Include="DrawHandler.cs" />
+    <Compile Include="errorString.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

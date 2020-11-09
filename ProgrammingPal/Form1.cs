@@ -16,6 +16,7 @@ namespace ProgrammingPal
         DrawHandler theCanvass;
         commandRun commandShell = new commandRun();
         textboxRun textboxRunner = new textboxRun();
+
         public Form1()
         {
             InitializeComponent();
@@ -52,13 +53,28 @@ namespace ProgrammingPal
                     theCanvass.MoveTo(toDraw.Item2, toDraw.Item3);
                     break;
                 case "clear":
-                    theCanvass.Clear();
+                    theCanvass.bgClear();
                     break;
                 case "reset":
                     theCanvass.MoveTo(0, 0);
                     break;
                 case "run":
                     runBox();
+                    break;
+                case "triangle":
+                    theCanvass.DrawTriangle(toDraw.Item2);
+                    break;
+                case "error":
+                    theCanvass.error(toDraw);
+                    break;
+                case "fill":
+                    theCanvass.Fill(toDraw.Item2);
+                    break;
+                case "color":
+                    theCanvass.ColorSet(toDraw.Item2);
+                    break;
+                case "rectangle":
+                    theCanvass.DrawRectangle(toDraw.Item2, toDraw.Item3);
                     break;
             }
             Refresh();

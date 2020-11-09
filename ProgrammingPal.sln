@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammingPal", "ProgrammingPal\ProgrammingPal.csproj", "{BD307C36-E8F5-45C6-94D7-EC308B3A9CC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestProject1", "XUnitTestProject1\XUnitTestProject1.csproj", "{C98965B7-269A-432F-84CD-2AFE70F42629}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BD307C36-E8F5-45C6-94D7-EC308B3A9CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD307C36-E8F5-45C6-94D7-EC308B3A9CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD307C36-E8F5-45C6-94D7-EC308B3A9CC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C98965B7-269A-432F-84CD-2AFE70F42629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C98965B7-269A-432F-84CD-2AFE70F42629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C98965B7-269A-432F-84CD-2AFE70F42629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C98965B7-269A-432F-84CD-2AFE70F42629}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
