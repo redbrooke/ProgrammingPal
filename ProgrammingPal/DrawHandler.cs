@@ -109,6 +109,8 @@ namespace ProgrammingPal
         public void bgClear()
         {
             graphics.Clear(Color.White);
+            Xpos = 0;
+            Ypos = 0;
         }
 
         /// <summary>This method changes the pen color</summary>

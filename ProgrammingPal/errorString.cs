@@ -19,10 +19,10 @@ namespace ProgrammingPal
                     returnMe += "Unknown";
                     break;
                 case 1:
-                    returnMe += "Invalid Parameter";
+                    returnMe += "Invalid";
                     break;
                 case 2:
-                    returnMe += "Invalid Command";
+                    returnMe += "Invalid";
                     break;
                 case 3:
                     returnMe += "String Param Error";
