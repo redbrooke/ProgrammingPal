@@ -19,6 +19,7 @@ namespace ProgrammingPal
         textboxRun textboxRunner = new textboxRun();
         private SaveFileDialog dioBox;
         private OpenFileDialog dioBoxOpen;
+        private List<Tuple<String, int, int>> runTheseCommands = new List<Tuple<String, int, int>>();
 
         /// <summary> this method creates the form</summary>
         public Form1()
@@ -38,7 +39,10 @@ namespace ProgrammingPal
         private void runBox()
         {
             var rawCode = Codebox.Lines;
-            Array.ForEach(rawCode, run => drawTheCommand(textboxRunner.returnInstruction(run)));
+            bool done = false;
+            runTheseCommands = textboxRunner.returnInstructions(rawCode);
+
+            Array.ForEach(runTheseCommands, run => drawTheCommand(run));
         }
 
         /// <summary>This method takes an encoded Tuple message and sends it to the appropriate draw command</summary>
@@ -82,6 +86,8 @@ namespace ProgrammingPal
                 case "rectangle":
                     theCanvass.DrawRectangle(toDraw.Item2, toDraw.Item3);
                     break;
+                case null:
+                    break;
             }
             Refresh();
         }
@@ -120,6 +126,11 @@ namespace ProgrammingPal
             {
                 this.Codebox.LoadFile(dioBoxOpen.FileName, RichTextBoxStreamType.PlainText);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

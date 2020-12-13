@@ -56,6 +56,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="logic\Compiler.cs" />
+    <Compile Include="logic\function.cs" />
+    <Compile Include="logic\ifStatement.cs" />
+    <Compile Include="logic\logicFactory.cs" />
+    <Compile Include="logic\loop.cs" />
+    <Compile Include="logic\variable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="textboxRun.cs" />
