@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace ProgrammingPal
 {
@@ -41,8 +42,11 @@ namespace ProgrammingPal
             var rawCode = Codebox.Lines;
             bool done = false;
             runTheseCommands = textboxRunner.returnInstructions(rawCode);
-
-            Array.ForEach(runTheseCommands, run => drawTheCommand(run));
+            foreach(Tuple<String, int, int> run in runTheseCommands)  
+            {
+                drawTheCommand(run);
+                    
+            }
         }
 
         /// <summary>This method takes an encoded Tuple message and sends it to the appropriate draw command</summary>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProgrammingPal.logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,22 +11,18 @@ namespace ProgrammingPal
     class textboxRun : CommandHandler
     {
         private List<Tuple<String, int, int>> toDraw = new List<Tuple<String, int, int>>();
-
+       
         /// <summary>This class takes in the users commandline input and feeds it to the parser, then returns a formatted version.</summary>
         public List<Tuple<string, int, int>> returnInstructions(string[] fullInput)
         {
-           // 
-            bool done = false;
-            var count = 0;
 
+            // compileCode
+            Compiler compile = new Compiler();
+            string[] compiledCode = 
             // Parses the compiled code
             Array.ForEach(fullInput, input =>
             {
-
-                var parsedInput = parse(input);
-                var toDrawNext = new Tuple<string, int, int>(parsedInput.Item1, parsedInput.Item2, parsedInput.Item3);
-                toDraw[count] = toDrawNext;
-                count++;
+                toDraw.Add(parse(input));
             });
 
 
