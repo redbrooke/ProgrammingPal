@@ -40,7 +40,6 @@ namespace ProgrammingPal
         private void runBox()
         {
             var rawCode = Codebox.Lines;
-            bool done = false;
             runTheseCommands = textboxRunner.returnInstructions(rawCode);
             foreach(Tuple<String, int, int> run in runTheseCommands)  
             {

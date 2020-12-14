@@ -18,12 +18,14 @@ namespace ProgrammingPal
 
             // compileCode
             Compiler compile = new Compiler();
-            string[] compiledCode = 
+            List<string> compiledCode = compile.getCompiledCode(fullInput);
+
+
             // Parses the compiled code
-            Array.ForEach(fullInput, input =>
+            foreach(string input in compiledCode)
             {
                 toDraw.Add(parse(input));
-            });
+            }
 
 
             return toDraw;

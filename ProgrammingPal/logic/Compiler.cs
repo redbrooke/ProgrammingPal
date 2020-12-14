@@ -32,10 +32,24 @@ namespace ProgrammingPal.logic
 		{
 			while (programCounter < lines.Length) 
 			{
-				line = lines[loopCounter].ToLower();
+				line = lines[programCounter].ToLower();
 				split = line.Split(' ');
-				command = split[0];
-				parameter = split[1];
+				try
+				{
+					command = split[0];
+				}
+				catch (Exception e)
+				{
+					command = null;
+				}
+				try
+				{
+					parameter = split[1];
+				}
+				catch (Exception e) 
+				{
+					parameter = null;
+				}
 				// check syntax
 
 				if (methodFlag == false && executeLinesFlag == true) // Checks if the code is meant to be running or not
@@ -43,7 +57,7 @@ namespace ProgrammingPal.logic
 					if (command == "def") // creates a function
 					{
 						//HANDLE METHOD
-						functionList.Add((function)logicCreator.createLogic("def", parameter, (programCounter + 1).ToString()));
+						functionList.Add((function)logicCreator.createDef("def", parameter, (programCounter).ToString()));
 						methodFlag = true;
 					}
 					else if (command == "call")
@@ -61,14 +75,14 @@ namespace ProgrammingPal.logic
 							methodCounter++;
 						}
 					}
-					else if (methodExecuting == true && command == "endDef") // If a method is running, check for the end.
+					else if (methodExecuting == true && command == "enddef") // If a method is running, check for the end.
 					{
 						programCounter = saveProgramCounter;
 						methodExecuting = false;
 
 					}
 					// END OF FUCNTION LOGIC
-					else if (parameter == "=") //IF ITS A VARIABLE
+					else if (command == "var") //IF ITS A VARIABLE
 					{
 						// add stuf to check if variable exists
 						variableList.Add((variable)logicCreator.createLogic("variable", command, split[2]));
@@ -84,7 +98,7 @@ namespace ProgrammingPal.logic
 						loopCounter = 0;
 						loopSize = 0;
 					}
-					else if (command == "endLoop")
+					else if (command == "endloop")
 					{
 						if (loopFlag == true)
 						{
@@ -102,8 +116,9 @@ namespace ProgrammingPal.logic
 					else if (command == "if")
 					{
 						string revPolish = split[2] + "," + split[3];
-						ifList.Add((ifStatement)logicCreator.createLogic("if", parameter, revPolish));
-						if (!(ifList.Last().checkStatement())) // Checks if the if statement is false
+						ifStatement tempIf = (ifStatement)logicCreator.createIf("if", parameter, revPolish);
+						bool temp = tempIf.checkStatement();
+						if (!temp) // Checks if the if statement is false
 						{
 							executeLinesFlag = false;
 						}
@@ -111,18 +126,21 @@ namespace ProgrammingPal.logic
 					}
 					else // If its a normal command
 					{
-						compiledCode.Append(lines[programCounter]);
+						if (!(command == "endif" || command == "enddef"))
+						{
+							compiledCode.Add(line);
+						}					
 					}
 					if (loopFlag == true) 
 					{
 						loopSize++;
 					}
 				}
-				else if (methodFlag == true && command == "endDef") // checks for the end of the method.
+				else if (methodFlag == true && command == "enddef") // checks for the end of the method.
 				{
 					methodFlag = false;
 				}
-				else if (executeLinesFlag == false && command == "endIf") 
+				else if (executeLinesFlag == false && command == "endif") 
 				{
 					executeLinesFlag = true;
 				}
