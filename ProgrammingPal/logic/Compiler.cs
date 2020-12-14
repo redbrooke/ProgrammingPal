@@ -34,6 +34,10 @@ namespace ProgrammingPal.logic
 			{
 				line = lines[programCounter].ToLower();
 				split = line.Split(' ');
+				foreach (String piece in lines) 
+				{ 
+					
+				}
 				try
 				{
 					command = split[0];
