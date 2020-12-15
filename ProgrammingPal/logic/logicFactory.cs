@@ -36,5 +36,12 @@ namespace ProgrammingPal.logic
             returnLogic.SetPointer(int.Parse(secondParam));
             return returnLogic;
         }
+        public variable createVar(string logic, string firstParam, string secondParam) 
+        {
+            variable returnLogic = new variable();
+            returnLogic.SetName(firstParam);
+            returnLogic.SetValue(secondParam);
+            return returnLogic;
+        }
     }
 }

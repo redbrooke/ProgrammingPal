@@ -34,10 +34,19 @@ namespace ProgrammingPal.logic
 			{
 				line = lines[programCounter].ToLower();
 				split = line.Split(' ');
-				foreach (String piece in lines) 
-				{ 
-					
+				for (int x = 0; x  < (split.Length); x++)
+				{
+					foreach (variable var in variableList)
+					{
+						if (split[x] == var.GetName())
+						{
+							line = line.Replace(split[x], var.GetValue());
+							split[x] = var.GetValue();
+						}
+					}
 				}
+				
+
 				try
 				{
 					command = split[0];
@@ -89,7 +98,7 @@ namespace ProgrammingPal.logic
 					else if (command == "var") //IF ITS A VARIABLE
 					{
 						// add stuf to check if variable exists
-						variableList.Add((variable)logicCreator.createLogic("variable", command, split[2]));
+						variableList.Add(logicCreator.createVar("variable", split[1], split[3]));
 					}
 
 					// ADD STUFF TO CALL VARIABLES
