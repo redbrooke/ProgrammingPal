@@ -15,6 +15,8 @@ namespace ProgrammingPal
         /// <summary>This class takes in the users commandline input and feeds it to the parser, then returns a formatted version.</summary>
         public List<Tuple<string, int, int>> returnInstructions(string[] fullInput)
         {
+            toDraw = new List<Tuple<String, int, int>>();
+
 
             // compileCode
             Compiler compile = new Compiler();
