@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProgrammingPal.logic
 {
+	/// <summary>
+	/// This class is intended to compile the users input into a program that can be ran using part 1's code.
+	/// </summary>
 	class Compiler
 	{
 		private List<String> compiledCode = new List<String>();
@@ -28,6 +31,12 @@ namespace ProgrammingPal.logic
 		private List<function> functionList = new List<function>();
 		private List<variable> variableList = new List<variable>();
 		private List<ifStatement> ifList = new List<ifStatement>();
+
+		/// <summary>
+		/// This method is intended to generate compiled code. In practice it will take the code with logic (e.g ifs and loops) and convert it into regular commands, like in part 1.
+		/// </summary>
+		/// <param name="lines">Lines is an array of the user's input line by line. It contains logic (e.g ifs and loops) </param>
+		/// <returns>This returns a compiled version of the code that can be ran like a regular program.</returns>
 		public List<String> getCompiledCode(String[] lines)
 		{
 			while (programCounter < lines.Length) 
@@ -164,21 +173,3 @@ namespace ProgrammingPal.logic
 		}
 	}
 }
-
-/* 
-	//VARIABLES
-	if var command
-		found = checkVariable(parameter)
-		if found >= 0
-			report syntax_error variable already declared
-		else
-			variableNames[variableCounter] = parameter
-			variableValues[variableCounter++] = 0
-	
-
-endwhile
-
-method int checkVariables(name)
-	for loop = 0 to variableCounter
-*/
-

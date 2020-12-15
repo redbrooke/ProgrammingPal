@@ -60,7 +60,6 @@
     <Compile Include="logic\function.cs" />
     <Compile Include="logic\ifStatement.cs" />
     <Compile Include="logic\logicFactory.cs" />
-    <Compile Include="logic\loop.cs" />
     <Compile Include="logic\variable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
